@@ -6,12 +6,19 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Mvc;
 
+
 namespace VSOServiceIntegration.Web.Controllers
 {
     public class ServiceController : ApiController
     {
-        [System.Web.Http.HttpPost]
+        [System.Web.Mvc.HttpPost]
         public ActionResult VSO([FromBody] string value)
+        {
+            return new HttpStatusCodeResult(200, value);
+        }
+
+        [System.Web.Mvc.HttpPost]
+        public ActionResult Slack([FromBody] string value)
         {
             return new HttpStatusCodeResult(200, value);
         }
