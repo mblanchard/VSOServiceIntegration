@@ -1,25 +1,24 @@
-﻿using System.Net;
-using System.Web.Http;
+﻿
 using System.Web.Mvc;
 
 namespace VSOServiceIntegration.Web.Controllers.ServiceHooks
 {
-    public class VSOController : ApiController
+    public class VSOController : Controller
     {
-        [System.Web.Mvc.HttpPost]
-        public ActionResult ServiceHook([FromBody] string value)
+        [HttpPost]
+        public ActionResult ServiceHook([System.Web.Http.FromBody] string value)
         {
             return new HttpStatusCodeResult(200, value);
         }
 
-        [System.Web.Mvc.HttpPost]
+        [HttpPost]
         public ActionResult ServiceHook()
         {
             return new HttpStatusCodeResult(200);
         }
 
 
-        [System.Web.Mvc.HttpGet]
+        [HttpGet]
         public ActionResult CheckHistory()
         {
             return new HttpStatusCodeResult(200, "History");
