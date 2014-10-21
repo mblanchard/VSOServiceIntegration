@@ -9,12 +9,18 @@ using System.Web.Mvc;
 
 namespace VSOServiceIntegration.Web.Controllers
 {
-    public class ServiceController : ApiController
+    public class ServiceHooksController : ApiController
     {
         [System.Web.Mvc.HttpPost]
         public ActionResult VSO([FromBody] string value)
         {
             return new HttpStatusCodeResult(200, value);
+        }
+
+        [System.Web.Mvc.HttpPost]
+        public ActionResult VSO()
+        {
+            return new HttpStatusCodeResult(200);
         }
 
         [System.Web.Mvc.HttpPost]
